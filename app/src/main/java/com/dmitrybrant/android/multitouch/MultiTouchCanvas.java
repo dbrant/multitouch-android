@@ -22,7 +22,7 @@ public class MultiTouchCanvas extends View {
 
     private List<Point> pointerLocations = new ArrayList<>();
     private int[] pointerColors = new int[] { 0xFFFFFFFF, 0xFFFF4040, 0xFF40FF40, 0xFF4040FF, 0xFFFF40FF, 0xFFFFFF40, 0xFF40FFFF };
-    private int[] pointerColorsDark = new int[] { 0xFFa0a0a0, 0xFFa00000, 0xFF00a000, 0xFF0000a0, 0xFFa000a0, 0xFFa0a000, 0xFF00a0a0 };
+    private int[] pointerColorsDark = new int[] { 0xFFA0A0A0, 0xFFA00000, 0xFF00A000, 0xFF0000A0, 0xFFA000A0, 0xFFA0A000, 0xFF00A0A0 };
 
     public MultiTouchCanvas(Context context) {
         super(context);
@@ -66,7 +66,7 @@ public class MultiTouchCanvas extends View {
             paint.setColor(pointerColors[i % pointerColors.length]);
             canvas.drawCircle(p.x, p.y, circleRadius, paint);
         }
-        String str = "Touches detected: " + Integer.toString(totalTouches);
+        String str = String.format(getResources().getString(R.string.num_touches), Integer.toString(totalTouches));
         for (int i = 0; i < totalTouches; i++) {
             str += "\n";
             str += pointerLocations.get(i).x + ", " + pointerLocations.get(i).y;

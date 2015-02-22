@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sample">-</string>
     <string name="app_name">MultiTouch</string>
-    <string name="str_about">Test utility for multi-touch screens in Android.\n\nCopyright © Dmitry Brant, 2013</string>
+    <string name="ok">OK</string>
+    <string name="about">About…</string>
+    <string name="num_touches">Touches detected: %s</string>
+    <string name="str_about">Test utility for multi–touch screens in Android.\n\nCopyright © Dmitry Brant, 2013–2015</string>
 </resources>

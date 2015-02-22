@@ -28,11 +28,11 @@ public class MultiTouchActivity extends Activity {
             public void onClick(View arg0) {
                 View layout = getLayoutInflater().inflate(R.layout.about, null);
                 TextView txtAbout = (TextView) layout.findViewById(R.id.txtAbout);
-                txtAbout.setText(MultiTouchActivity.this.getString(R.string.str_about));
+                txtAbout.setText(getString(R.string.str_about));
                 AlertDialog alertDialog = new AlertDialog.Builder(MultiTouchActivity.this).create();
-                alertDialog.setTitle("About...");
+                alertDialog.setTitle(getString(R.string.about));
                 alertDialog.setView(layout);
-                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 });
