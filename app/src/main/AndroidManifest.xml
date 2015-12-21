@@ -6,12 +6,15 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:allowBackup="false">
+        <uses-library android:required="false" android:name="com.sec.android.app.multiwindow"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true" />
         <activity
             android:name="com.dmitrybrant.android.multitouch.MultiTouchActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

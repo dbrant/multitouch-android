@@ -14,10 +14,14 @@ import android.view.MotionEvent;
 
 public class MultiTouchCanvas extends View {
     private static final int CIRCLE_RADIUS_DP = 20;
-    private MultiTouchActivity parentActivity;
 
+    public interface MultiTouchStatusListener {
+        void onStatus(List<Point> pointerLocations, int numPoints);
+    }
+
+    private MultiTouchStatusListener statusListener;
     private Paint paint;
-    private int totalTouches = 0;
+    private int totalTouches;
     private int circleRadius;
 
     private List<Point> pointerLocations = new ArrayList<>();
@@ -26,31 +30,21 @@ public class MultiTouchCanvas extends View {
 
     public MultiTouchCanvas(Context context) {
         super(context);
-        init(context);
+        init();
     }
 
     public MultiTouchCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init();
     }
 
     public MultiTouchCanvas(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
+        init();
     }
 
-    private void init(Context context) {
-        circleRadius = (int)(CIRCLE_RADIUS_DP * getResources().getDisplayMetrics().density);
-        parentActivity = (MultiTouchActivity) context;
-        paint = new Paint();
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(Color.WHITE);
-        paint.setAntiAlias(true);
-        paint.setStrokeWidth(3);
-        final int maxPointers = 100;
-        for (int i = 0; i < maxPointers; i++) {
-            pointerLocations.add(new Point());
-        }
+    public void setStatusListener(MultiTouchStatusListener listener) {
+        statusListener = listener;
     }
 
     @Override
@@ -66,12 +60,9 @@ public class MultiTouchCanvas extends View {
             paint.setColor(pointerColors[i % pointerColors.length]);
             canvas.drawCircle(p.x, p.y, circleRadius, paint);
         }
-        String str = String.format(getResources().getString(R.string.num_touches), Integer.toString(totalTouches));
-        for (int i = 0; i < totalTouches; i++) {
-            str += "\n";
-            str += pointerLocations.get(i).x + ", " + pointerLocations.get(i).y;
+        if (statusListener != null) {
+            statusListener.onStatus(pointerLocations, totalTouches);
         }
-        parentActivity.updateInfo(str);
     }
 
     @Override
@@ -112,5 +103,18 @@ public class MultiTouchCanvas extends View {
 
         postInvalidate();
         return true;
+    }
+
+    private void init() {
+        circleRadius = (int)(CIRCLE_RADIUS_DP * getResources().getDisplayMetrics().density);
+        paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.WHITE);
+        paint.setAntiAlias(true);
+        paint.setStrokeWidth(3);
+        final int maxPointers = 100;
+        for (int i = 0; i < maxPointers; i++) {
+            pointerLocations.add(new Point());
+        }
     }
 }
