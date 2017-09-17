@@ -22,7 +22,7 @@ public class MultiTouchCanvas extends View {
     }
 
     @Nullable private MultiTouchStatusListener statusListener;
-    @NonNull private Paint paint;
+    @NonNull private Paint paint = new Paint();
     private int totalTouches;
     private int circleRadius;
 
@@ -109,7 +109,6 @@ public class MultiTouchCanvas extends View {
 
     private void init() {
         circleRadius = (int)(CIRCLE_RADIUS_DP * getResources().getDisplayMetrics().density);
-        paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.WHITE);
         paint.setAntiAlias(true);
