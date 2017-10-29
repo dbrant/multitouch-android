@@ -24,10 +24,10 @@ public class MultiTouchActivity extends Activity implements MultiTouchCanvas.Mul
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main);
 
-        txtInfo = (TextView) findViewById(R.id.txtInfo);
+        txtInfo = findViewById(R.id.txtInfo);
         ((MultiTouchCanvas) findViewById(R.id.multiTouchView)).setStatusListener(this);
 
-        Button btnAbout = (Button) findViewById(R.id.btnAbout);
+        Button btnAbout = findViewById(R.id.btnAbout);
         btnAbout.getBackground().setAlpha(128);
         btnAbout.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
