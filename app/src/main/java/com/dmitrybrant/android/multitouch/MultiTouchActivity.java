@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -17,8 +15,6 @@ public class MultiTouchActivity extends Activity implements MultiTouchCanvas.Mul
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main);
 
         txtInfo = findViewById(R.id.txtInfo);
@@ -40,7 +36,7 @@ public class MultiTouchActivity extends Activity implements MultiTouchCanvas.Mul
     }
 
     private void showAboutDialog() {
-        new AlertDialog.Builder(MultiTouchActivity.this)
+        new AlertDialog.Builder(this)
                 .setPositiveButton(R.string.ok, null)
                 .setTitle(R.string.about)
                 .setMessage(R.string.str_about)
