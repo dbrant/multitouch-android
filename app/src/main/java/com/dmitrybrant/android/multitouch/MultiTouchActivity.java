@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -20,8 +18,7 @@ public class MultiTouchActivity extends Activity implements MultiTouchCanvas.Mul
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main);
 
         txtInfo = findViewById(R.id.txtInfo);
@@ -29,11 +26,7 @@ public class MultiTouchActivity extends Activity implements MultiTouchCanvas.Mul
 
         Button btnAbout = findViewById(R.id.btnAbout);
         btnAbout.getBackground().setAlpha(128);
-        btnAbout.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                showAboutDialog();
-            }
-        });
+        btnAbout.setOnClickListener(v -> showAboutDialog());
     }
 
     @Override

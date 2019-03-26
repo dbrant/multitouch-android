@@ -56,9 +56,9 @@ public class MultiTouchCanvas extends View {
         for (int i = 0; i < totalTouches; i++) {
             Point p = pointerLocations.get(i);
             paint.setColor(pointerColorsDark[i % pointerColorsDark.length]);
-            canvas.drawLine(0, p.y, canvas.getWidth(), p.y, paint);
-            canvas.drawLine(p.x, 0, p.x, canvas.getHeight(), paint);
-            canvas.drawCircle(p.x, p.y, circleRadius * 5 / 4, paint);
+            canvas.drawLine(0, p.y, getWidth(), p.y, paint);
+            canvas.drawLine(p.x, 0, p.x, getHeight(), paint);
+            canvas.drawCircle(p.x, p.y, circleRadius * 5f / 4f, paint);
             paint.setColor(pointerColors[i % pointerColors.length]);
             canvas.drawCircle(p.x, p.y, circleRadius, paint);
         }
