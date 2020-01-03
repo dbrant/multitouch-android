@@ -4,5 +4,5 @@
     <string name="ok">OK</string>
     <string name="about">About…</string>
     <string name="num_touches">Touches detected: %s</string>
-    <string name="str_about">Test utility for multi–touch screens in Android.\n\nCopyright © Dmitry Brant, 2013–2019</string>
+    <string name="str_about">Test utility for multi–touch screens in Android.\n\nCopyright © Dmitry Brant, 2013–2020</string>
 </resources>
