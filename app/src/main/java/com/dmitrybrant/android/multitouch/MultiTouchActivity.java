@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.core.view.ViewCompat;
 
 import java.util.List;
 
 public class MultiTouchActivity extends Activity implements MultiTouchCanvas.MultiTouchStatusListener {
     private TextView txtInfo;
+    private View btnAbout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,18 @@ public class MultiTouchActivity extends Activity implements MultiTouchCanvas.Mul
         txtInfo = findViewById(R.id.txtInfo);
         ((MultiTouchCanvas) findViewById(R.id.multiTouchView)).setStatusListener(this);
 
-        Button btnAbout = findViewById(R.id.btnAbout);
+        btnAbout = findViewById(R.id.btnAbout);
         btnAbout.getBackground().setAlpha(128);
         btnAbout.setOnClickListener(v -> showAboutDialog());
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.containerView), (v, insets) -> {
+            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) btnAbout.getLayoutParams();
+            params.topMargin = insets.getSystemWindowInsetTop();
+            params.bottomMargin = insets.getSystemWindowInsetBottom();
+            params.leftMargin = insets.getSystemWindowInsetLeft();
+            params.rightMargin = insets.getSystemWindowInsetRight();
+            return insets.consumeSystemWindowInsets();
+        });
     }
 
     @Override
