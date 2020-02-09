@@ -12,8 +12,8 @@ android {
         applicationId "com.dmitrybrant.android.multitouch"
         minSdkVersion 14
         targetSdkVersion 29
-        versionCode 12
-        versionName "1.12"
+        versionCode 13
+        versionName "1.13"
     }
 
     buildTypes {
@@ -25,5 +25,5 @@ android {
 }
 
 dependencies {
-    implementation "com.google.android.material:material:1.0.0"
+    implementation "com.google.android.material:material:1.1.0"
 }
