@@ -14,10 +14,10 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
         View(context, attrs, defStyle) {
 
     interface MultiTouchStatusListener {
-        fun onStatus(pointerLocations: List<Point>?, numPoints: Int)
+        fun onStatus(pointerLocations: List<Point>, numPoints: Int)
     }
 
-    private var statusListener: MultiTouchStatusListener? = null
+    var statusListener: MultiTouchStatusListener? = null
     private val paint = Paint()
     private var totalTouches = 0
     private var circleRadius = 0
@@ -35,10 +35,6 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
         for (i in 0 until maxPointers) {
             pointerLocations.add(Point())
         }
-    }
-
-    fun setStatusListener(listener: MultiTouchStatusListener?) {
-        statusListener = listener
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -79,8 +75,6 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
                 }
             }
             MotionEvent.ACTION_MOVE -> {
-            }
-            else -> {
             }
         }
         postInvalidate()

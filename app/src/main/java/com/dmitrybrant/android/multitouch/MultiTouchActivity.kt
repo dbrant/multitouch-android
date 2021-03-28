@@ -19,7 +19,7 @@ class MultiTouchActivity : Activity(), MultiTouchStatusListener {
         binding = MainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.multiTouchView.setStatusListener(this)
+        binding.multiTouchView.statusListener = this
 
         binding.btnAbout.background.alpha = 128
         binding.btnAbout.setOnClickListener { showAboutDialog() }
@@ -33,11 +33,11 @@ class MultiTouchActivity : Activity(), MultiTouchStatusListener {
         }
     }
 
-    override fun onStatus(pointerLocations: List<Point>?, numPoints: Int) {
+    override fun onStatus(pointerLocations: List<Point>, numPoints: Int) {
         var str = String.format(resources.getString(R.string.num_touches), numPoints.toString())
         for (i in 0 until numPoints) {
             str += "\n"
-            str += pointerLocations!![i].x.toString() + ", " + pointerLocations[i].y
+            str += pointerLocations[i].x.toString() + ", " + pointerLocations[i].y
         }
         binding.txtInfo.text = str
     }
