@@ -8,7 +8,6 @@ import android.graphics.Point
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import java.util.*
 
 class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) :
         View(context, attrs, defStyle) {
@@ -21,7 +20,7 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
     private val paint = Paint()
     private var totalTouches = 0
     private var circleRadius = 0
-    private val pointerLocations: MutableList<Point> = ArrayList()
+    private val pointerLocations = mutableListOf<Point>()
     private val pointerColors = intArrayOf(-0x1, -0xbfc0, -0xbf00c0, -0xbfbf01, -0xbf01, -0xc0, -0xbf0001)
     private val pointerColorsDark = intArrayOf(-0x5f5f60, -0x600000, -0xff6000, -0xffff60, -0x5fff60, -0x5f6000, -0xff5f60)
 

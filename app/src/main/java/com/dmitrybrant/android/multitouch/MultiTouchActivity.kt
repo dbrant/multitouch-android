@@ -23,7 +23,7 @@ class MultiTouchActivity : Activity(), MultiTouchStatusListener {
 
         binding.btnAbout.background.alpha = 128
         binding.btnAbout.setOnClickListener { showAboutDialog() }
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.containerView)) { _: View?, insets: WindowInsetsCompat ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.containerView)) { _, insets ->
             val params = binding.btnAbout.layoutParams as FrameLayout.LayoutParams
             params.topMargin = insets.systemWindowInsetTop
             params.bottomMargin = insets.systemWindowInsetBottom
