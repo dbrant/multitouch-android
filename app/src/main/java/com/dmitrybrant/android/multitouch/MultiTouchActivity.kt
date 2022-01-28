@@ -4,10 +4,8 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.graphics.Point
 import android.os.Bundle
-import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.dmitrybrant.android.multitouch.MultiTouchCanvas.MultiTouchStatusListener
 import com.dmitrybrant.android.multitouch.databinding.MainBinding
 
