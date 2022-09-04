@@ -44,7 +44,7 @@ class MultiTouchActivity : Activity(), MultiTouchStatusListener {
 
     private fun showAboutDialog() {
         AlertDialog.Builder(this)
-                .setPositiveButton(R.string.ok, null)
+                .setPositiveButton(android.R.string.ok, null)
                 .setTitle(R.string.about)
                 .setMessage(R.string.str_about)
                 .create()
