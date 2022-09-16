@@ -32,10 +32,10 @@ class MultiTouchActivity : Activity(), MultiTouchStatusListener {
     }
 
     override fun onStatus(pointerLocations: List<Point>, numPoints: Int) {
-        val str = StringBuilder(String.format(resources.getString(R.string.num_touches), numPoints.toString()))
+        val str = StringBuilder(String.format(getString(R.string.num_touches), numPoints))
         for (i in 0 until numPoints) {
             str.append("\n")
-            str.append(pointerLocations[i].x.toString())
+            str.append(pointerLocations[i].x)
             str.append(", ")
             str.append(pointerLocations[i].y)
         }
