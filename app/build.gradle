@@ -27,6 +27,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
     }
+    namespace 'com.dmitrybrant.android.multitouch'
 }
 
 dependencies {
