@@ -14,11 +14,12 @@
         android:layout_height="wrap_content"
         android:background="#50000000"
         android:padding="8dp" />
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        style="?android:attr/buttonStyleSmall"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:alpha="0.5"
         android:text="@string/about" />
 </FrameLayout>
