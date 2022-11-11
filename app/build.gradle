@@ -17,10 +17,6 @@ android {
         versionName "1.14"
     }
 
-    buildFeatures {
-        viewBinding true
-    }
-
     buildTypes {
         release {
             minifyEnabled true
@@ -31,6 +27,5 @@ android {
 }
 
 dependencies {
-    implementation "com.google.android.material:material:1.7.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }

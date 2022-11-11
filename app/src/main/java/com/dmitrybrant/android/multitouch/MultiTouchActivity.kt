@@ -3,30 +3,34 @@ package com.dmitrybrant.android.multitouch
 import android.app.Activity
 import android.app.AlertDialog
 import android.graphics.Point
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.FrameLayout
-import androidx.core.view.ViewCompat
+import android.widget.TextView
 import com.dmitrybrant.android.multitouch.MultiTouchCanvas.MultiTouchStatusListener
-import com.dmitrybrant.android.multitouch.databinding.MainBinding
 
 class MultiTouchActivity : Activity(), MultiTouchStatusListener {
-    private lateinit var binding: MainBinding
+    private lateinit var txtInfo: TextView
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.main)
 
-        binding.multiTouchView.statusListener = this
+        txtInfo = findViewById(R.id.txtInfo)
+        findViewById<MultiTouchCanvas>(R.id.multiTouchView).statusListener = this
 
-        binding.btnAbout.setOnClickListener { showAboutDialog() }
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.containerView)) { _, insets ->
-            val params = binding.btnAbout.layoutParams as FrameLayout.LayoutParams
-            params.topMargin = insets.systemWindowInsetTop
-            params.bottomMargin = insets.systemWindowInsetBottom
-            params.leftMargin = insets.systemWindowInsetLeft
-            params.rightMargin = insets.systemWindowInsetRight
-            insets.consumeSystemWindowInsets()
+        findViewById<View>(R.id.btnAbout).setOnClickListener { showAboutDialog() }
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            findViewById<View>(R.id.containerView).setOnApplyWindowInsetsListener { v, insets ->
+                val params = findViewById<View>(R.id.btnAbout).layoutParams as FrameLayout.LayoutParams
+                params.topMargin = insets.systemWindowInsetTop
+                params.bottomMargin = insets.systemWindowInsetBottom
+                params.leftMargin = insets.systemWindowInsetLeft
+                params.rightMargin = insets.systemWindowInsetRight
+                insets.consumeSystemWindowInsets()
+            }
         }
     }
 
@@ -38,7 +42,7 @@ class MultiTouchActivity : Activity(), MultiTouchStatusListener {
             str.append(", ")
             str.append(pointerLocations[i].y)
         }
-        binding.txtInfo.text = str
+        txtInfo.text = str
     }
 
     private fun showAboutDialog() {

@@ -13,13 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#50000000"
+        android:textColor="@color/colorPrimary"
         android:padding="8dp" />
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        style="@style/Widget.Material3.Button.OutlinedButton"
         android:alpha="0.5"
         android:text="@string/about" />
 </FrameLayout>
