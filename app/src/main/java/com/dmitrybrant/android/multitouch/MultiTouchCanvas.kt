@@ -51,7 +51,7 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
         statusListener?.onStatus(pointerLocations, totalTouches)
     }
 
-    override fun onTouchEvent(event: MotionEvent): Boolean {
+    fun renderTouchEvent(event: MotionEvent) {
         val pointerIndex = event.actionIndex
         val action = event.actionMasked
         val numTouches = event.pointerCount
@@ -65,7 +65,6 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
         when (action) {
             MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> totalTouches = numTouches
             MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP, MotionEvent.ACTION_CANCEL -> {
-
                 //move indices down, and put the last one up
                 if (pointerIndex < numTouches - 1) {
                     val p = pointerLocations[pointerIndex]
@@ -77,7 +76,6 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
             }
         }
         postInvalidate()
-        return true
     }
 
     companion object {

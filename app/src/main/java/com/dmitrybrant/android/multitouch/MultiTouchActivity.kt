@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.graphics.Point
 import android.os.Build
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -12,13 +13,15 @@ import com.dmitrybrant.android.multitouch.MultiTouchCanvas.MultiTouchStatusListe
 
 class MultiTouchActivity : Activity(), MultiTouchStatusListener {
     private lateinit var txtInfo: TextView
+    private lateinit var multiTouchView: MultiTouchCanvas
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 
         txtInfo = findViewById(R.id.txtInfo)
-        findViewById<MultiTouchCanvas>(R.id.multiTouchView).statusListener = this
+        multiTouchView = findViewById(R.id.multiTouchView)
+        multiTouchView.statusListener = this
 
         findViewById<View>(R.id.btnAbout).setOnClickListener { showAboutDialog() }
 
@@ -32,6 +35,13 @@ class MultiTouchActivity : Activity(), MultiTouchStatusListener {
                 insets.consumeSystemWindowInsets()
             }
         }
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+        if (event != null) {
+            multiTouchView.renderTouchEvent(event)
+        }
+        return super.dispatchTouchEvent(event)
     }
 
     override fun onStatus(pointerLocations: List<Point>, numPoints: Int) {
