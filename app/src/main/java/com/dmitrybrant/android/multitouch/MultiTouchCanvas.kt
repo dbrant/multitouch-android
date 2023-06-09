@@ -63,8 +63,8 @@ class MultiTouchCanvas @JvmOverloads constructor(context: Context, attrs: Attrib
             pointerLocations[i].y = event.getY(i).toInt()
         }
         when (action) {
-            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN -> totalTouches = numTouches
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP, MotionEvent.ACTION_CANCEL -> {
+            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_POINTER_DOWN, MotionEvent.ACTION_CANCEL -> totalTouches = numTouches
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_POINTER_UP -> {
                 //move indices down, and put the last one up
                 if (pointerIndex < numTouches - 1) {
                     val p = pointerLocations[pointerIndex]
