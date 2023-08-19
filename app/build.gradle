@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -11,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId "com.dmitrybrant.android.multitouch"
-        minSdkVersion 14
-        targetSdkVersion 33
+        minSdk 14
+        targetSdk 34
         versionCode 15
         versionName "1.15"
     }
