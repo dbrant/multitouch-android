@@ -1,2 +1,4 @@
 # multitouch-android
-Multi-touch test app for Android
+Multi-touch test app for Android.
+
+
