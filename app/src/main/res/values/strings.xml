@@ -3,5 +3,5 @@
     <string name="app_name">MultiTouch</string>
     <string name="about">About…</string>
     <string name="num_touches">Touches detected: %d</string>
-    <string name="str_about">Test utility for multi–touch screens in Android.\n\nCopyright © Dmitry Brant, 2013–2022</string>
+    <string name="str_about">Test utility for multi–touch screens in Android.\n\nCopyright © 2013+ by Dmitry Brant.</string>
 </resources>
