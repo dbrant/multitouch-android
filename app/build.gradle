@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.dmitrybrant.android.multitouch"
-        minSdk 1
+        minSdk 8
         targetSdk 34
         versionCode 16
         versionName "1.16"
