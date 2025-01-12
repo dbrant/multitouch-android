@@ -34,6 +34,11 @@ public class MultiTouchActivity extends Activity implements MultiTouchStatusList
                 params.bottomMargin = insets.getSystemWindowInsetBottom();
                 params.leftMargin = insets.getSystemWindowInsetLeft();
                 params.rightMargin = insets.getSystemWindowInsetRight();
+                params = (FrameLayout.LayoutParams) findViewById(R.id.txtInfo).getLayoutParams();
+                params.topMargin = insets.getSystemWindowInsetTop();
+                params.bottomMargin = insets.getSystemWindowInsetBottom();
+                params.leftMargin = insets.getSystemWindowInsetLeft();
+                params.rightMargin = insets.getSystemWindowInsetRight();
                 return insets.consumeSystemWindowInsets();
             });
         }
