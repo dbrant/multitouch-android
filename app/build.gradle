@@ -12,7 +12,7 @@ android {
         applicationId "com.dmitrybrant.android.multitouch"
         minSdk 8
         targetSdk 36
-        versionCode 16
+        versionCode 17
         versionName "1.16"
     }
 
