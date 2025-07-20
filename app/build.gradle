@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 35
+    compileSdk 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.dmitrybrant.android.multitouch"
         minSdk 8
-        targetSdk 35
+        targetSdk 36
         versionCode 16
         versionName "1.16"
     }
