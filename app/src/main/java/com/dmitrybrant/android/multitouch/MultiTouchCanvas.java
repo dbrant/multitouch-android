@@ -40,9 +40,9 @@ public class MultiTouchCanvas extends View {
     private final List<Point> pointerLocations = new ArrayList<>();
     private final int[] pointerColors = new int[] { -0x1, -0xbfc0, -0xbf00c0, -0xbfbf01, -0xbf01, -0xc0, -0xbf0001 };
     private final int[] pointerColorsDark = new int[] { -0x5f5f60, -0x600000, -0xff6000, -0xffff60, -0x5fff60, -0x5f6000, -0xff5f60 };
-    private final int CIRCLE_RADIUS_DP = 20;
 
     private void init() {
+        int CIRCLE_RADIUS_DP = 20;
         circleRadius = (int)(CIRCLE_RADIUS_DP * getResources().getDisplayMetrics().density);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.WHITE);
