@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 36
+    compileSdk = 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -10,16 +10,16 @@ android {
 
     defaultConfig {
         applicationId "com.dmitrybrant.android.multitouch"
-        minSdk 8
-        targetSdk 36
-        versionCode 17
-        versionName "1.16"
+        minSdk = 8
+        targetSdk = 36
+        versionCode = 17
+        versionName = "1.16"
     }
 
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
         }
     }
     namespace 'com.dmitrybrant.android.multitouch'
